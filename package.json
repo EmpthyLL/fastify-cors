@@ -1,0 +1,21 @@
+{
+  "name": "shadcn-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "build": "node server",
+    "dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/cors": "^7.0.0",
+    "@fastify/mysql": "^4.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "fastify": "^3.29.5",
+    "pino-pretty": "^11.2.2"
+  }
+}
