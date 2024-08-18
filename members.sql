@@ -11,3 +11,7 @@ CREATE TABLE `members`.`members` (
   `statusid` VARCHAR(45) NULL,
   PRIMARY KEY (`id`)
 );
+
+ALTER TABLE members
+ADD CONSTRAINT unique_email UNIQUE (email);
+Delete from members where id = 2;
