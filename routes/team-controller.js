@@ -77,6 +77,29 @@ function teamManager(app, opts, done) {
       }
     }
   });
+  app.put("/:id", {}, async (req, res) => {
+    const key = req.params.id;
+    const change = req.body;
+    try {
+      const field = Object.entries(change)
+        .map(([key, value]) => `${key} = '${value}'`)
+        .join(", ");
+      await app.mysql.execute(`UPDATE members SET ${field} WHERE id = ?`, [
+        key,
+      ]);
+      const [members] = await app.mysql.execute("SELECT * FROM members");
+      res.send({
+        message: "Member has been updated",
+        members,
+      });
+    } catch (error) {
+      if (error) {
+        res.status(400).send({
+          message: error.message,
+        });
+      }
+    }
+  });
   done();
 }
 
