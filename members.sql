@@ -11,3 +11,5 @@ CREATE TABLE `members`.`members` (
   `statusid` VARCHAR(45) NULL,
   PRIMARY KEY (`id`)
 );
+
+ALTER TABLE members ADD UNIQUE (email);
